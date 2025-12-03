@@ -80,9 +80,9 @@
             <div class="header-top">
                 <div class="title-block">
                     <h1>Compras y Comercio Exterior</h1>
-                    <p class="subtitle">Manual de Entrenamiento: Escenarios de Importaciones</p>
+                    <p class="subtitle">Manual de Entrenamiento GEMS</p>
                 </div>
-                <span class="version-info">PG-CM-04 Ver 01</span>
+                <span class="version-info">PG-CM-04 (2025)</span>
             </div>
             <div class="controls">
                 <div class="search-wrapper"><input type="search" id="search-input" placeholder="Buscar por palabra clave..."></div>
@@ -111,6 +111,132 @@
             "roles": ["Importaciones"],
             "situation": "El proveedor chino envía una Proforma que dice 'TOTAL CFR ASUNCION: $10,000'. El Asistente carga el pedido en el sistema poniendo $10,000 como costo de la mercadería (FOB).",
             "solution": "Error Operativo: Inflación del costo del producto e impuestos incorrectos. Se debe prorratear y separar el costo del flete (CFR = Cost + Freight) del valor FOB para la correcta liquidación de impuestos en Aduana."
+        },
+        {
+            "id": 3,
+            "title": "El Proveedor Fantasma (Pago Bloqueado)",
+            "roles": ["Compras"],
+            "situation": "Se aprueba una compra urgente a un nuevo proveedor en India. El Asistente carga el pedido y pide el Swift a Tesorería. Tesorería dice: 'No puedo pagar, no existe en el sistema'. Se pierden 3 días.",
+            "solution": "Antes de pedir el pago, el Asistente debe realizar el Alta de Proveedores (Paso 2.1), registrar los datos en el sistema y solicitar al Auxiliar Contable la asignación de la cuenta contable."
+        },
+        {
+            "id": 4,
+            "title": "Las Muestras de Regalo",
+            "roles": ["Importaciones"],
+            "situation": "El proveedor avisa por WhatsApp: 'Les puse 50 gorras de regalo en el contenedor'. El Asistente dice 'Gracias' y no hace nada más porque 'es gratis'.",
+            "solution": "Aunque sea costo cero, debe registrarse en el pedido (Caso 1.3). Al registrar el despacho, ingresarán al sistema con costo cero, pero deben estar declarados para evitar multas por contrabando."
+        },
+        {
+            "id": 5,
+            "title": "El Estatus Congelado",
+            "roles": ["Importaciones"],
+            "situation": "Vendedor pregunta: '¿Cuándo llegan los plotters?'. Sistema dice: 'Producción'. El Asistente responde: 'Ah no, eso ya salió hace 2 semanas, está en el barco'.",
+            "solution": "El Asistente debe actualizar la Planilla de Importaciones y enviar el informe semanal por correo electrónico al Gerente Comercial y Logística (PG-CM-04). El sistema debe reflejar la realidad (Tránsito, Puerto, etc.)."
+        },
+        {
+            "id": 6,
+            "title": "Descarga Nocturna (Sin Testigos)",
+            "roles": ["Depósito"],
+            "situation": "El contenedor llega a las 19:00. El Encargado de Depósito se queda solo a descargar para 'sacar el trabajo rápido'. Termina y se va a casa.",
+            "solution": "La norma exige confeccionar la Planilla de Desestiba y, si es fuera de horario, 'solicita la firma de la planilla a los participantes'. Descargar solo rompe la cadena de custodia."
+        },
+        {
+            "id": 7,
+            "title": "La Caja Mojada",
+            "roles": ["Depósito"],
+            "situation": "Al abrir el contenedor, se ven cajas húmedas al fondo. El Encargado descarga todo, seca las cajas y las guarda. Al día siguiente informa verbalmente en el almuerzo.",
+            "solution": "Se deben 'tomar fotografías del estado en que llega la carga' (Paso 1.8.1) y emitir el Informe de Desestiba detallando el daño inmediatamente (Paso 1.8.4). Sin fotos in situ, el seguro no paga."
+        },
+        {
+            "id": 8,
+            "title": "Sobrante de Mercadería",
+            "roles": ["Depósito"],
+            "situation": "Pedimos 100 unidades. Llegaron 105. El Encargado de Depósito ingresa 100 al sistema para que 'cuadre con la factura' y deja 5 aparte en un estante.",
+            "solution": "Se debe reportar la diferencia. El IT-CM-02 indica que 'se corrige el pedido con el fin de distribuir el costo... de forma homogénea'. Las 105 unidades deben ingresar al sistema prorrateando el costo total pagado."
+        },
+        {
+            "id": 9,
+            "title": "Llegada Sorpresa",
+            "roles": ["Importaciones", "Logística"],
+            "situation": "Un camión con mercadería local llega al depósito central. El depósito está lleno, no hay espacio en los racks. El chofer espera 4 horas.",
+            "solution": "El Asistente de Importaciones/Compras debió informar al Coordinador de Logística sobre la previsión de llegada 'con el fin de prever el espacio de almacenamiento' antes de que el camión salga."
+        },
+        {
+            "id": 10,
+            "title": "El Depósito Incorrecto",
+            "roles": ["Importaciones"],
+            "situation": "La mercadería se descargó físicamente en la Sucursal Ciudad del Este. El Asistente registra el Invoice en el sistema asignando 'Depósito Central Asunción'.",
+            "solution": "'En caso de que se tenga que cambiar el depósito luego de haber registrado el Invoice, se deberá anular y volver a registrar'. No se debe hacer una transferencia simple sin corregir el ingreso original, pues afecta las cuentas contables de inventario por sucursal."
+        },
+        {
+            "id": 11,
+            "title": "La Tasa de Cambio (Invoice vs. Despacho)",
+            "roles": ["Importaciones"],
+            "situation": "El Asistente registra el Invoice usando el tipo de cambio del día que cargó el pedido (7.200). El Despacho sale con cambio 7.400. Cierra la operación así.",
+            "solution": "El IT-CM-01 es estricto: El Tipo de Cambio para el Invoice y el Despacho debe ser el de la 'Fecha de la Hoja de Aduana'. Se debe ajustar al oficial del despacho para que los impuestos en guaraníes coincidan con la liquidación de la DNA."
+        },
+        {
+            "id": 12,
+            "title": "El Prorrateo Olvidado (Flete Pre-Pagado)",
+            "roles": ["Importaciones"],
+            "situation": "El flete internacional se pagó hace 2 meses (Prepaid). Al cerrar el despacho, el Asistente carga los gastos del despachante pero olvida incluir el flete porque 'ya se pagó'.",
+            "solution": "Se debe verificar 'FLETES PAGADOS POR ADELANTADO' y cargarlos en la columna de gastos del despacho para que el sistema prorratee ese costo sobre los productos. Si no, el producto parece más barato de lo que realmente costó ponerlo en depósito."
+        },
+        {
+            "id": 13,
+            "title": "Arancel Promedio (La Pereza)",
+            "roles": ["Importaciones"],
+            "situation": "El despacho tiene 50 ítems. 20 pagan 2% de arancel, 30 pagan 10%. El Asistente carga un gasto único de 'Derechos Aduaneros' y deja que el sistema lo reparta por valor total.",
+            "solution": "'Verificar si existe Derecho aduanero para ir distribuyendo por cada artículo su arancel correspondiente'. Se debe asignar manualmente el costo exacto de impuestos a cada línea según la Hoja de Aduana."
+        },
+        {
+            "id": 14,
+            "title": "Diferencia de Factura y Despacho",
+            "roles": ["Importaciones"],
+            "situation": "El Invoice del sistema dice $10,000. La Hoja de Aduana dice $10,050 (por un ajuste de seguro de aduana). El Asistente guarda así sin ajustar.",
+            "solution": "Se debe realizar el control: 'El valor total del invoice del sistema contra el documento'. Si hay diferencias, deben reflejarse como gastos de ajuste para que la base imponible del sistema cuadre exactamente con la Aduana."
+        },
+        {
+            "id": 15,
+            "title": "La Firma Fantasma",
+            "roles": ["Importaciones", "Compras"],
+            "situation": "El Asistente imprime el reporte de Despacho del sistema, le pone un clip y lo manda directo a Contabilidad para archivar.",
+            "solution": "Debe imprimir 2 copias y hacer firmar al Jefe de Compras. Esa firma valida que los costos ingresados son correctos. Contabilidad no debería recibir despachos sin esa firma."
+        },
+        {
+            "id": 16,
+            "title": "El Proveedor Tardón (Evaluación)",
+            "roles": ["Compras"],
+            "situation": "Un proveedor entrega tarde por 3ra vez consecutiva. Ventas se queja. Compras dice: 'Es lo que hay, es el único que tiene stock'.",
+            "solution": "El Jefe de Compras debe calificar la 'Disponibilidad/Tiempo de entrega'. Si es 'Casi nunca cumple' (Calificación 2), y el promedio baja del 60%, se debe poner a consideración de la Gerencia Comercial la continuidad del proveedor o buscar alternativas."
+        },
+        {
+            "id": 17,
+            "title": "Documentos Originales Perdidos",
+            "roles": ["Importaciones", "Depósito"],
+            "situation": "Se perdió el Invoice original en el trayecto. Solo hay copia escaneada. El depósito ya verificó la carga. El Asistente no registra nada 'esperando el original'.",
+            "solution": "El IT permite: 'Si no se tienen los documentos originales, se procede a registrar con las copias, siempre y cuando se tenga la verificación del depósito'. No se debe detener el ingreso al sistema."
+        },
+        {
+            "id": 18,
+            "title": "Compra Local como Importación",
+            "roles": ["Importaciones", "Compras"],
+            "situation": "Se compra mercadería a un proveedor local (Asunción) pero en Dólares. El Asistente tilda 'Proveedor del Exterior' en el sistema porque la factura es en USD.",
+            "solution": "Si es proveedor local, aunque sea en dólares: 'tilda REPORTE y se destilda EXENTA' (a menos que sea zona franca). Configurar mal el tipo de proveedor afecta la generación automática de los libros de Compras impositivos."
+        },
+        {
+            "id": 19,
+            "title": "Anticipo sin Aplicar",
+            "roles": ["Compras"],
+            "situation": "Se pagó $5,000 de anticipo. Llegó la carga. Se cerró el despacho. En el estado de cuenta del proveedor siguen figurando los $5,000 a favor flotando por meses.",
+            "solution": "'Todos los anticipos deben ser aplicados en la fecha del despacho registrado'. Tesorería o Contabilidad deben cruzar el anticipo contra la factura final en el módulo 'Movimientos de Caja' inmediatamente al cerrar el despacho."
+        },
+        {
+            "id": 20,
+            "title": "Retención de Renta Ignorada",
+            "roles": ["Importaciones"],
+            "situation": "El Despachante incluye 'Retención Renta' en su liquidación. El Asistente lo carga como un 'Gasto Vario' (Concepto 20) sumado a las fotocopias.",
+            "solution": "El instructivo especifica: 'Se coloca aparte el gasto de RETENCION RENTA IRE' o se usa el concepto específico (Cód 64 en el ejemplo). Esto alimenta cuentas contables de impuestos (Activo/Pasivo fiscal), no de costo directo simple."
         }
     ];
 
@@ -122,9 +248,8 @@
         const backToTopButton = document.getElementById('back-to-top');
         const closeAllButton = document.getElementById('close-all-btn');
         let activeFilter = 'Todos';
-        const SESSION_STORAGE_KEY = 'openScenariosCompras'; // Clave única para este manual
+        const SESSION_STORAGE_KEY = 'openScenariosCompras';
         
-        // Iconos actualizados para el Clúster de Compras
         const icons = {
             "Importaciones": `<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20 21c-1.39 0-2.78-.47-4-1.32-2.44 1.71-5.56 1.71-8 0C6.78 20.53 5.39 21 4 21H2v2h2c1.38 0 2.74-.35 4-.99 2.52 1.29 5.48 1.29 8 0 1.26.65 2.62.99 4 .99h2v-2h-2zM3.95 19H4c1.6 0 3.02-.88 4-2 .98 1.12 2.4 2 4 2s3.02-.88 4-2c.98 1.12 2.4 2 4 2h.05l.02-1.91C18.49 16.61 17.37 15.92 16.5 15c-1.31-1.38-3.07-1.36-4.22-.16l-1.55 1.62L9.22 14.9C8.07 13.7 6.31 13.72 5 15.1c-.87.92-1.99 1.61-3.57 2.09L3.95 19zM6 6v2.34l2 1V5H6zm8.8 1.8l2-1V5h-2v2.8zm-4.4 2.2l2-1V5h-2v4zM18 1L6 4.6V5h12V1z"/></svg>`,
             "Compras": `<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>`,
@@ -178,7 +303,7 @@
         const saveState = () => { sessionStorage.setItem(SESSION_STORAGE_KEY, JSON.stringify(Array.from(document.querySelectorAll('.scenario.open')).map(el => el.dataset.id))); };
         const loadState = () => { JSON.parse(sessionStorage.getItem(SESSION_STORAGE_KEY) || '[]').forEach(id => { const el = document.querySelector(`.scenario[data-id='${id}']`); if (el) { el.classList.add('open'); el.querySelector('.scenario-header').setAttribute('aria-expanded', 'true'); } }); };
         
-        // Event Listener para búsqueda en tiempo real (Fix aplicado)
+        // Listener de búsqueda
         searchInput.addEventListener('input', filterAndSearch);
         
         filtersContainer.addEventListener('click', e => { if (e.target.closest('.filter-btn')) { filtersContainer.querySelector('.active').classList.remove('active'); e.target.closest('.filter-btn').classList.add('active'); activeFilter = e.target.closest('.filter-btn').dataset.role; filterAndSearch(); } });
